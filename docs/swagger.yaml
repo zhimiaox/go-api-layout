@@ -1,0 +1,105 @@
+basePath: /api
+definitions:
+  vo.LoginReq:
+    properties:
+      app_id:
+        type: string
+      js_code:
+        type: string
+    type: object
+  vo.LoginResp:
+    properties:
+      open_id:
+        type: string
+      token:
+        type: string
+      uid:
+        type: integer
+    type: object
+  vo.UserInfoUpdateReq:
+    properties:
+      avatar_url:
+        description: 头像
+        type: string
+      city:
+        description: 市
+        type: string
+      country:
+        description: 国家
+        type: string
+      gender:
+        description: 1-男性 2-女性
+        type: integer
+      nickname:
+        description: 用户昵称
+        type: string
+      phone:
+        description: 手机号
+        type: string
+      province:
+        description: 省
+        type: string
+    type: object
+info:
+  contact:
+    email: mail@xiaoliu.org
+    name: API Support
+    url: http://tools.zhimiao.org
+  description: 纸喵软件系列
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://zhimiao.org
+  title: 纸喵 API
+  version: "1.0"
+paths:
+  /v1/hello:
+    get:
+      responses:
+        "200":
+          description: ""
+      summary: 测试页面
+      tags:
+      - default
+  /v1/member/login:
+    post:
+      parameters:
+      - description: 入参
+        in: body
+        name: default
+        schema:
+          $ref: '#/definitions/vo.LoginReq'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/vo.LoginResp'
+      summary: 登录
+      tags:
+      - 账户
+  /v1/member/userinfo:
+    put:
+      description: 更新用户信息
+      parameters:
+      - description: 入参
+        in: body
+        name: default
+        schema:
+          $ref: '#/definitions/vo.UserInfoUpdateReq'
+      responses:
+        "200":
+          description: ""
+      security:
+      - ApiAuth: []
+      summary: 更新用户信息
+      tags:
+      - 账户
+schemes:
+- http
+- https
+securityDefinitions:
+  ApiAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

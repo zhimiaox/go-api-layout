@@ -1,0 +1,51 @@
+[App]
+Debug = true
+
+[Auth]
+JwtSecret = "N4ah00000000000pBZWZ"
+JwtExpire = "72h"
+JwtBufferTime = "5m"
+
+[API]
+ApiHost = "https://localhost:1324"
+APIListen = ":1324"
+ReadTimeOut = 60
+WriteTimeOut = 60
+
+[Mysql]
+Host = "localhost:3306"
+User = "root"
+Password = "root"
+Database = "test"
+TablePrefix = ""
+
+[Redis]
+Host = "localhost:6379"
+Auth = "root"
+DB = 3
+
+[Aliyun]
+AccessKey = ""
+AccessSecret = ""
+RegionId = "cn-hangzhou"
+[Aliyun.OSS]
+BucketName = "zhimiao"
+Domain = "https://zhimiaox.cn"
+Endpoint = "oss-cn-hangzhou.aliyuncs.com"
+UploadDIR = "mmd/"
+CallBackURL = "http://localhost:1324/file/callback"
+
+[Wechat]
+[Wechat.Seller]
+AppID = ""
+AppSecret = ""
+Token = ""
+EncodingAESKey = ""
+[Wechat.Buyer]
+AppID = ""
+AppSecret = ""
+Token = ""
+EncodingAESKey = ""
+
+
+
